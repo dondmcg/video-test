@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Donald McGrath">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="./css/normalize.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="loading">
+    <section class="video-wrapper">
+      <h1>HTML5 Krossovr Test</h1>
+        <!-- Begin Media Fragments Example -->
+        <div>
+          <div class="vid-outer">
+            <video id="frag1" controls preload="metadata" poster="images/loading.gif">
+              <source src="https://docs.google.com/uc?export=download&id=0B6wwyazyzml-TVNHYThCemt2SDg"  type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' data-original="https://docs.google.com/uc?export=download&id=0B6wwyazyzml-TVNHYThCemt2SDg">
+              <source src="https://docs.google.com/uc?export=download&id=0B6wwyazyzml-NHoyMFNxQnVyWEU" type='video/webm;codecs="vp8, vorbis"' data-original="https://docs.google.com/uc?export=download&id=0B6wwyazyzml-NHoyMFNxQnVyWEU">
+              Your browser does not support HTML 5 video
+            </video>
+            <div id="video-poster"><!--width="700px" height="525px"-->
+              <img src="images/loading.gif">
+            </div>
+          </div>
+          <div id="playlist" class="container">
+            <div class="row titlebar">
+              <div class="col-sm-11">
+                <h1>Video Fragments</h1>
+                <div class="slider closed">
+                  <form id="add_frag_form" action="javascript:0">
+                    <div class="form-group">
+                      <label for="frag_title">Fragment Title</label>
+                      <input type="text" class="form-control" required id="frag_title" placeholder="Title">
+                    </div>
+                    <div class='row'>
+                      <div class='col-sm-3'>
+                        <div class="form-group">
+                          <label for="start">Start Time</label>
+                          <input type="text" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$" class="form-control" id="start_time" placeholder="Start xx:xx" autocomplete="on" required>
+                        </div>
+                      </div>
+                      <div class='col-sm-3'>
+                        <div class="form-group">
+                          <label for="start">End Time</label>
+                          <input type="text" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$" class="form-control" id="end_time" placeholder="End xx:xx" autocomplete="on" required>
+                        </div>
+                      </div>
+                      <div class='col-sm-6'>
+                        <button type="submit" id="add_frag" class="btn btn-success">Add Fragment</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-1">
+                <h1 id="add_frag_btn" class="glyphicon glyphicon-plus-sign"></h1>
+              </div>
+            </div>
+            <div class="row fragment">
+              <div class="col-sm-1 bg-lt-grey">
+                <span data-start="00:00" data-end="00:27" class="glyphicon glyphicon-play"></span>
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-md-6">
+                    <span class="frag-title"><strong>Full Video </strong></span>
+                  </div>
+                  <div class="col-md-6">
+                    <small>
+                      <span class="frag-start">00:00</span> - <span class="frag-end">00:27</span>
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+            </div>
+            <div class="row fragment">
+              <div class="col-sm-1 bg-lt-grey">
+                <span data-start="00:06" data-end="00:17" class="glyphicon glyphicon-play"></span>
+              </div>
+              <div class="col-sm-9">
+                <form name="row1" id="row1">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <span class="frag-title">Section One </span>
+                      </div>
+                      <div class="col-md-6">
+                        <small>
+                          <span class="frag-start">00:06</span> - <span class="frag-end">00:17</span>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-1 bg-primary">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </div>
+              <div class="col-sm-1 bg-delete">
+                <span class="delete glyphicon glyphicon-remove" data-toggle="modal" data-target="#confirm-delete" data-row="1" data-frag-title="Section One 0:06 - 0:27"></span>
+              </div>
+            </div>
+            <div class="row fragment">
+              <div class="col-sm-1 bg-lt-grey">
+                <span data-start="00:17" data-end="00:19" class="glyphicon glyphicon-play"></span>
+              </div>
+              <div class="col-sm-9">
+                <form name="row2" id="row2">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <span class="frag-title">Section Two </span>
+                      </div>
+                      <div class="col-md-6">
+                        <small>
+                          <span class="frag-start">00:17</span> - <span class="frag-end">00:19</span>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-1 bg-primary">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </div>
+              <div class="col-sm-1 bg-delete">
+                <span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#confirm-delete" data-row="2" data-frag-title="Section Two 0:17 - 0:27"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Media Fragments Example -->  
+      </section>
+    <!-- confirm delete modal -->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3>Are you sure you mean to delete this video fragment:</h3>
+                  <span class="frag-title"></span>
+              </div>
+              <div class="modal-body">
+                  If you delete this fragment in error you can still add another fragment to re-create it.
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-danger btn-ok">Delete</a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="./js/application.js"></script>
+  </body>
+</html>

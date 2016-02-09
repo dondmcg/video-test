@@ -1,0 +1,33 @@
+{
+  "name": "video-test",
+  "version": "1.0.0",
+  "description": "creating html5 video player with media fragments",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify js/main.js -o js/application.js",
+    "watch": "watchify js/main.js -o js/application.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dondmcg/video-test.git"
+  },
+  "author": "Don McGrath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dondmcg/video-test/issues"
+  },
+  "homepage": "https://github.com/dondmcg/video-test#readme",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.2.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0",
+    "jsdom": "^8.0.2",
+    "lodash": "^4.2.1"
+  }
+}
