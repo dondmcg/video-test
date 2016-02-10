@@ -96,7 +96,7 @@ var mediaFrag = ( function() {
             '</div>\n</div>';
         if( title && start && end ){
             $('#playlist').append( newRow );
-            //jsForm.reset();
+            jsForm.reset();
             $('.slider').toggleClass('closed');
         }
         setPlayButtons(fragNum - 1);
